@@ -1,13 +1,39 @@
-<h1>{{ product.name }}</h1>
+{% extends 'base.html' %}
 
-<p>Price: ₹{{ product.price }}</p>
+{% block content %}
 
-<p>{{ product.description }}</p>
+<style>
+.box{
+    background:white;
+    padding:25px;
+    max-width:500px;
+    margin:auto;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
 
-<a href="/add-to-cart/{{ product.id }}/">
-    Add to Cart
-</a>
+.price{
+    color:green;
+    font-size:22px;
+    font-weight:bold;
+}
 
-<br><br>
+.btn{
+    background:#ff9900;
+    padding:10px 15px;
+    display:inline-block;
+    text-decoration:none;
+    color:black;
+    border-radius:5px;
+}
+</style>
 
-<a href="/">Back to Products</a>
+<div class="box">
+    <h1>{{ product.name }}</h1>
+    <p class="price">₹{{ product.price }}</p>
+    <p>{{ product.description }}</p>
+
+    <a class="btn" href="/add-to-cart/{{ product.id }}/">Add to Cart</a>
+</div>
+
+{% endblock %}

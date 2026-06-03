@@ -1,15 +1,45 @@
-<h1>Shopping Cart 🛒</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+.box{
+    background:white;
+    padding:20px;
+    max-width:600px;
+    margin:auto;
+    border-radius:10px;
+}
+
+.item{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.btn{
+    background:#ff9900;
+    padding:10px;
+    display:inline-block;
+    margin-top:15px;
+    text-decoration:none;
+    color:black;
+}
+</style>
+
+<div class="box">
+
+<h2>Your Cart 🛒</h2>
 
 {% for item in cart_items %}
-    <p>{{ item.name }} - ₹{{ item.price }}</p>
+<div class="item">
+    {{ item.name }} - ₹{{ item.price }}
+</div>
 {% empty %}
-    <p>Your cart is empty.</p>
+<p>No items in cart</p>
 {% endfor %}
 
-<br>
+<a class="btn" href="/place-order/">Place Order</a>
 
-<a href="/place-order/">Place Order</a>
+</div>
 
-<br><br>
-
-<a href="/">Continue Shopping</a>
+{% endblock %}

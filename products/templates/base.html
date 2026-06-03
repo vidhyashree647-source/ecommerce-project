@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Luxury Store{% endblock %}</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background:#f1f3f6;
+        }
+
+        /* NAVBAR */
+        .navbar{
+            background:#131921;
+            color:white;
+            padding:15px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:22px;
+            font-weight:bold;
+            color:#ff9900;
+        }
+
+        .search{
+            width:40%;
+            padding:8px;
+        }
+
+        .cart{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        /* CONTENT */
+        .container{
+            padding:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">🛒 MyShop</div>
+
+    <input class="search" placeholder="Search products...">
+
+    <a href="/cart/" class="cart">Cart 🛒</a>
+</div>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
