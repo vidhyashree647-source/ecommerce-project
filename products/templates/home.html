@@ -1,0 +1,12 @@
+
+<h1>My Ecommerce Website 🛍️</h1>
+
+{% for product in products %}
+<div>
+    <h2>{{ product.name }}</h2>
+    <p>₹{{ product.price }}</p>
+
+    <a href="/product/{{ product.id }}/">View Details</a>
+</div>
+<hr>
+{% endfor %}

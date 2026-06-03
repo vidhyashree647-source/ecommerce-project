@@ -1,0 +1,15 @@
+<h1>Shopping Cart 🛒</h1>
+
+{% for item in cart_items %}
+    <p>{{ item.name }} - ₹{{ item.price }}</p>
+{% empty %}
+    <p>Your cart is empty.</p>
+{% endfor %}
+
+<br>
+
+<a href="/place-order/">Place Order</a>
+
+<br><br>
+
+<a href="/">Continue Shopping</a>
