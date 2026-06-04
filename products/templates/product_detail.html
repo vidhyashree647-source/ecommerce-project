@@ -3,37 +3,61 @@
 {% block content %}
 
 <style>
-.box{
-    background:white;
-    padding:25px;
-    max-width:500px;
-    margin:auto;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+.detail-card{
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    border: 1px solid #334155;
+}
+
+.detail-card img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+h2, p{
+    color: white;
 }
 
 .price{
-    color:green;
-    font-size:22px;
-    font-weight:bold;
+    color: #4ade80;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .btn{
-    background:#ff9900;
-    padding:10px 15px;
-    display:inline-block;
-    text-decoration:none;
-    color:black;
-    border-radius:5px;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
 </style>
 
-<div class="box">
-    <h1>{{ product.name }}</h1>
+<div class="detail-card">
+
+    {% if product.image %}
+        <img src="{{ product.image.url }}">
+    {% endif %}
+
+    <h2>{{ product.name }}</h2>
+
     <p class="price">₹{{ product.price }}</p>
+
     <p>{{ product.description }}</p>
 
-    <a class="btn" href="/add-to-cart/{{ product.id }}/">Add to Cart</a>
+    <a class="btn" href="/add-to-cart/{{ product.id }}/">
+        Add to Cart
+    </a>
+
 </div>
 
 {% endblock %}

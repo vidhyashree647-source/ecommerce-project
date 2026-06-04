@@ -1,58 +1,79 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
-
 {% block content %}
 
 <style>
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
 .card{
-    background:white;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    transition:0.2s;
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    border: 1px solid #334155;
 }
 
 .card:hover{
-    transform:scale(1.03);
+    transform: scale(1.05);
+    border-color: #38bdf8;
+}
+
+.card img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .price{
-    color:green;
-    font-size:18px;
-    font-weight:bold;
+    color: #4ade80;
+    font-weight: bold;
 }
 
 .btn{
-    display:inline-block;
-    margin-top:10px;
-    background:#ff9900;
-    padding:8px 12px;
-    color:black;
-    text-decoration:none;
-    border-radius:5px;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover{
+    background: #0ea5e9;
 }
 </style>
 
 <h2>🔥 Featured Products</h2>
 
-<div class="product-grid">
+<div class="container">
 
 {% for product in products %}
+
 <div class="card">
-    <h3>{{ product.name }}</h3>
+
     {% if product.image %}
-    <img src="{{ product.image.url }}" width="150" height="150">
-{% endif %}
+        <img src="{{ product.image.url }}">
+    {% endif %}
+
+    <h3>{{ product.name }}</h3>
+
     <p class="price">₹{{ product.price }}</p>
-    <a class="btn" href="/product/{{ product.id }}/">View</a>
+
+    <a class="btn" href="/product/{{ product.id }}/">
+        View
+    </a>
+
 </div>
+
 {% endfor %}
 
 </div>
